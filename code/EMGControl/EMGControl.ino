@@ -12,7 +12,8 @@ Adafruit_DCMotor *myMotor = AFMS.getMotor(1);
 
 int sensor1Pin = A0;
 int freq = 1000;    //data collection frequency
-int sensorVal = 0;
+int sensorVal1 = 0;
+//int sensorVal2 = 0;
 String sensorLabel1 = "EMG Sensor 1";
 bool flag = true;
 int state = 0;
@@ -27,14 +28,17 @@ void setup()
 
 void loop() 
 {
-  sensorVal = analogRead(sensor1Pin);           // read the input on analog pin 0
-  float voltage = sensorVal * (5.0 / 1023.0);   // Convert the analog reading to a voltage
-  if (voltage < 0.5)
+  sensorVal1 = analogRead(sensor1Pin);           // read the input on analog pin 0
+  float voltage1 = sensorVal1 * (5.0 / 1023.0);   // Convert the analog reading to a voltage
+//  sensorVal2 = analogRead(sensor1Pin);
+//  float voltage2 = sensorVal2 * (5.0 / 1023.0);
+  
+  if (voltage1 <=2.50)
   {
       myMotor->run(RELEASE);
       state = 0;
   }
-  if (voltage > 0.5)
+  if (voltage1 > 2.50)
   {
       state = 1;
       run();

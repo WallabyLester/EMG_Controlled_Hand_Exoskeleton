@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-df = pd.read_csv('./data/EMG_data6.csv')
+df = pd.read_csv('./data/Combined_EMG_data1.csv')
 x_list = np.arange(df.size)
 y = pd.DataFrame(df['EMG Sensor 1']).to_numpy()
 y_list = np.zeros(len(y))
