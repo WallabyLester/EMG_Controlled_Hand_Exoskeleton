@@ -5,7 +5,7 @@ import csv
 arduino_port = "/dev/ttyACM0"
 # baud = 115200
 baud = 9600
-fileName = "./data/Combined_EMG_data1.csv"
+fileName = "./data/Combined_EMG_data10.csv"
 samples = 100
 # print_labels = False
 i = 0
