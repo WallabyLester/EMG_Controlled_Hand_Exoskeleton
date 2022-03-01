@@ -59,21 +59,21 @@ void loop()
   }
 
   // move index finger
-  if (voltage1 >= 0.8 && voltage1 < 1.0 && voltage2 <= 0.1 && voltage3 >=0.2 && voltage3 < 0.5 && voltage4 >= 0.5 && voltage4 < 0.6)
+  if (voltage1 >= 0.8 && voltage1 < 1.2 && voltage2 >= 0.09 && voltage3 >=0.2 && voltage3 < 0.55 && voltage4 >= 0.4 && voltage4 < 0.6)
   {
       state = 1;
       run(myMotor1);
   }
 
   // move middle finger
-  if (voltage1 >= 1.2 && voltage1 < 1.8 && voltage2 >= 0.1 && voltage2 <= 0.25 && voltage3 >= 0.6 && voltage3 < 1.5 && voltage4 >= 1.25 && voltage4 < 2.0)
+  if (voltage1 >= 1.0 && voltage1 < 1.8 && voltage2 >= 0.1 && voltage2 <= 0.25 && voltage3 >= 0.6 && voltage3 < 1.5 && voltage4 >= 1.25 && voltage4 < 2.0)
   {
       state = 1;
       run(myMotor2);
   }
 
   // move fourth finger
-  if (voltage1 >= 1.8 && voltage1 < 2.0 && voltage2 >= 0.2 && voltage2 <= 0.5 && voltage3 >= 0.5 && voltage3 < 0.8 && voltage4 >= 1.0 && voltage4 < 1.3)
+  if (voltage1 >= 1.2 && voltage1 < 2.0 && voltage2 >= 0.17 && voltage2 <= 0.5 && voltage3 >= 0.5 && voltage3 < 0.9 && voltage4 >= 1.0 && voltage4 < 1.3)
   {
       state = 1;
       run(myMotor3);
