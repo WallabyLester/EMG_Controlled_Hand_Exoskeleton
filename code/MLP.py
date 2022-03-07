@@ -8,7 +8,7 @@ import pickle
 
 
 class MLP():
-    def __init__(self, hidden_layer_sizes = (200,), activation='relu', solver='adam', random_state=1, max_iter = 1200):
+    def __init__(self, hidden_layer_sizes = (300,), activation='relu', solver='adam', random_state=1, max_iter = 4000):
         self.hidden_layer_sizes = hidden_layer_sizes
         self.activation = activation
         self.solver = solver
