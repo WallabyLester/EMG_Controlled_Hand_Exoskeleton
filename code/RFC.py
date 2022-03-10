@@ -1,21 +1,18 @@
 import pandas as pd
 import numpy as np
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.neural_network import MLPClassifier
 import os
 import glob
 import pickle
 
 
-class MLP():
-    def __init__(self, hidden_layer_sizes = (200,), activation ='relu', solver ='adam', learning_rate = 'constant', random_state = 1, max_iter = 4000):
-        self.hidden_layer_sizes = hidden_layer_sizes
-        self.activation = activation
-        self.solver = solver
-        self.learning_rate = learning_rate
-        self.random_state = random_state
-        self.max_iter = max_iter
-        self.mlp = MLPClassifier(hidden_layer_sizes = self.hidden_layer_sizes, activation = self.activation, solver = self.solver, learning_rate=self.learning_rate, random_state = self.random_state, max_iter = self.max_iter)
+class RFC():
+    def __init__(self, n_estimators = 27, max_depth = 15):
+        self.n_estimators = n_estimators
+        self.max_depth = max_depth
+        
+        self.rfc = RandomForestClassifier(n_estimators=self.n_estimators, max_depth=self.max_depth, random_state=1)
 
     def read_data(self):
         path = os.getcwd()
@@ -42,15 +39,15 @@ class MLP():
 
     def training(self):
         
-        self.mlp.fit(self.X_train, self.y_train)
+        self.rfc.fit(self.X_train, self.y_train)
 
 
     def prediction(self, value):
-        probs = self.mlp.predict_proba(self.X_test)
-        preds = self.mlp.predict(self.X_test)
-        score = self.mlp.score(self.X_test, self.y_test)
+        probs = self.rfc.predict_proba(self.X_test)
+        preds = self.rfc.predict(self.X_test)
+        score = self.rfc.score(self.X_test, self.y_test)
 
-        pred = self.mlp.predict(value)
+        pred = self.rfc.predict(value)
 
         return pred, preds, score, probs
         # return preds, score, probs
@@ -61,9 +58,9 @@ class MLP():
 
 
 if __name__ == "__main__":
-    mlp = MLP()
-    mlp.main()
-    filename = './Trained_Models/MLP.sav'
-    pickle.dump(mlp, open(filename, 'wb'))
-    # preds, score, _ = mlp.prediction(0)
+    rfc = RFC()
+    rfc.main()
+    filename = './Trained_Models/RFC.sav'
+    pickle.dump(rfc, open(filename, 'wb'))
+    # preds, score, _ = rfc.prediction(0)
     # print(f"Score: {score}")
