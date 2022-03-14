@@ -8,7 +8,7 @@ import pickle
 
 
 class KNN():
-    def __init__(self, n_neighbors = 23, weights = 'uniform', metric = 'manhattan'):
+    def __init__(self, n_neighbors = 13, weights = 'distance', metric = 'manhattan'):
         self.n_neighbors = n_neighbors
         self.weights = weights
         self.metric = metric
@@ -36,7 +36,7 @@ class KNN():
         X = np.vstack(X_list)
         y = np.hstack(y_list)
 
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.20, random_state=20)
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.30, random_state=20)
 
     def training(self):
         

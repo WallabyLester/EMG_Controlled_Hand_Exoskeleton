@@ -8,11 +8,12 @@ import pickle
 
 
 class RFC():
-    def __init__(self, n_estimators = 27, max_depth = 15):
+    def __init__(self, n_estimators = 90, max_depth = 10, max_features = 'auto'):
         self.n_estimators = n_estimators
         self.max_depth = max_depth
+        self.max_features = max_features
         
-        self.rfc = RandomForestClassifier(n_estimators=self.n_estimators, max_depth=self.max_depth, random_state=1)
+        self.rfc = RandomForestClassifier(n_estimators=self.n_estimators, max_depth=self.max_depth, max_features=self.max_features, random_state=1)
 
     def read_data(self):
         path = os.getcwd()
@@ -35,12 +36,11 @@ class RFC():
         X = np.vstack(X_list)
         y = np.hstack(y_list)
 
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.20, random_state=20)
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.30, random_state=20)
 
     def training(self):
         
         self.rfc.fit(self.X_train, self.y_train)
-
 
     def prediction(self, value):
         probs = self.rfc.predict_proba(self.X_test)

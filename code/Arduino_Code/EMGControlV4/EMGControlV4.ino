@@ -33,7 +33,6 @@ float eprev = 0, eintegral = 0, pwr = 0;
 
 void bend(Adafruit_DCMotor* motor, int _dir, float power);
 void stop();
-void readEncoder();
 void PID(int goal);
 
 void setup() 

@@ -8,7 +8,7 @@ import pickle
 
 
 class MLP():
-    def __init__(self, hidden_layer_sizes = (200,), activation ='relu', solver ='adam', learning_rate = 'constant', random_state = 1, max_iter = 4000):
+    def __init__(self, hidden_layer_sizes = (200,200,200,), activation ='relu', solver ='adam', learning_rate = 'constant', random_state = 1, max_iter = 1200):
         self.hidden_layer_sizes = hidden_layer_sizes
         self.activation = activation
         self.solver = solver
@@ -38,12 +38,11 @@ class MLP():
         X = np.vstack(X_list)
         y = np.hstack(y_list)
 
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.20, random_state=20)
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.30, random_state=20)
 
     def training(self):
         
         self.mlp.fit(self.X_train, self.y_train)
-
 
     def prediction(self, value):
         probs = self.mlp.predict_proba(self.X_test)

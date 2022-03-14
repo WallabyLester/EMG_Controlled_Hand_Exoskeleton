@@ -10,9 +10,9 @@ baud = 9600
 
 ser = serial.Serial(arduino_port, baud)
 
-filename = './Trained_Models/MLP.sav'
-# filename = './Trained_Models/KNN.sav'
+filename = './Trained_Models/KNN.sav'
 # filename = './Trained_Models/RFC.sav'
+# filename = './Trained_Models/MLP.sav'
 model = pickle.load(open(filename, 'rb'))
 
 while True:
