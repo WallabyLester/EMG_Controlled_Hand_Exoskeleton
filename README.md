@@ -24,7 +24,6 @@ There are four available models:
 
 3. Multilayer perceptron - MLP is a feed forward neural network. It uses an input layer, output layer, and any number of hidden layers. With an increased number of hidden layers it is able to predict more complex classes. They can also solved non-linear classification problems.
 
-
 ## Usage Instructions
 Compile `EMGControlEncoder.ino` onto the Arduino and run `Send_Mode.py` in a terminal with `python3 Send_Mode.py` to start predicting EMG readings. The code will print out the predicted mode. 
 
@@ -42,3 +41,5 @@ Use `MotorControl.ino` to test movement of individual motors and `Stop.ino` to s
 The classification model used in `Send_Mode.py` can be changed based on which ML model you would like to use. Change the line: `filename` to use different models.
 
 The encoder positions can be adjusted based on the desired amount to move the fingers. These would be the `pos_index`, `pos_middle`, `pos_fourth`, and `pos_pinky` variables in the encoder control files. 
+
+<iframe src="https://drive.google.com/file/d/12-7LMKhfDyjvKwPP5Gmho7GiX6tN9srv/preview" width="640" height="480" allow="autoplay"></iframe>
