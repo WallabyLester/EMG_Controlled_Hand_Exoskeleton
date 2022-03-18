@@ -1,12 +1,13 @@
 /********************************************************************
  * Read analog input of Myoware EMG sensor and convert it to voltage 
- * to control motor. 
+ * to control motor with thresholds.
  ********************************************************************/
 
 #include <Wire.h>
 #include <Adafruit_MotorShield.h>
 #include "utility/Adafruit_MS_PWMServoDriver.h"
 
+// Initiate motor driver and each motor
 Adafruit_MotorShield AFMS = Adafruit_MotorShield();
 Adafruit_DCMotor *myMotor1 = AFMS.getMotor(1);
 Adafruit_DCMotor *myMotor2 = AFMS.getMotor(2);
@@ -17,26 +18,27 @@ int sensor1Pin = A0;
 int sensor2Pin = A1;
 int sensor3Pin = A2;
 int sensor4Pin = A3;
-int freq = 1000;    
+
 int sensorVal1 = 0;
 int sensorVal2 = 0;
 int sensorVal3 = 0;
 int sensorVal4 = 0;
-// String sensorLabel1 = "EMG Sensor 1";
+
+int freq = 1000;  
 bool flag = true;
 int state = 0;
 
 
 void setup() 
 {
-  // initialize serial communication at 9600 bits per second:
+  // Initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
   AFMS.begin();
 }
 
 void loop() 
 {
-  sensorVal1 = analogRead(sensor1Pin);            // read the input on analog pin 0
+  sensorVal1 = analogRead(sensor1Pin);            // Read the input on analog pin 0
   float voltage1 = sensorVal1 * (5.0 / 1023.0);   // Convert the analog reading to a voltage
 
   sensorVal2 = analogRead(sensor2Pin);           
@@ -48,7 +50,7 @@ void loop()
   sensorVal4 = analogRead(sensor4Pin);           
   float voltage4 = sensorVal4 * (5.0 / 1023.0); 
 
-  // stop movement
+  // Stop movement
   if (voltage1 < 0.5)
   {
       myMotor1->run(RELEASE);
@@ -58,28 +60,28 @@ void loop()
       state = 0;
   }
 
-  // move index finger
+  // Move index finger
   if (voltage1 >= 0.8 && voltage1 < 1.2 && voltage2 >= 0.09 && voltage3 >=0.2 && voltage3 < 0.55 && voltage4 >= 0.4 && voltage4 < 0.6)
   {
       state = 1;
       run(myMotor1);
   }
 
-  // move middle finger
+  // Move middle finger
   if (voltage1 >= 1.0 && voltage1 < 1.8 && voltage2 >= 0.1 && voltage2 <= 0.25 && voltage3 >= 0.6 && voltage3 < 1.5 && voltage4 >= 1.25 && voltage4 < 2.0)
   {
       state = 1;
       run(myMotor2);
   }
 
-  // move fourth finger
+  // Move fourth finger
   if (voltage1 >= 1.2 && voltage1 < 2.0 && voltage2 >= 0.17 && voltage2 <= 0.5 && voltage3 >= 0.5 && voltage3 < 0.9 && voltage4 >= 1.0 && voltage4 < 1.3)
   {
       state = 1;
       run(myMotor3);
   }
 
-  // move pinky finger
+  // Move pinky finger
   if (voltage1 >= 0.5 && voltage1 < 0.7 && voltage2 >= 0.1 && voltage2 <= 0.2 && voltage3 >= 0.2 && voltage3 < 0.65 && voltage4 >= 1.0 && voltage4 < 1.2)
   {
       state = 1;
@@ -87,6 +89,7 @@ void loop()
   }
 }
 
+// Function to move motor forward and backward
 void run (Adafruit_DCMotor* motor)
 {
     while (state == 1)
