@@ -5,7 +5,7 @@ from MLP import MLP
 from KNN import KNN
 from RFC import RFC
 
-arduino_port = "/dev/ttyACM0"
+arduino_port = "/dev/ttyACM2"
 baud = 9600
 
 ser = serial.Serial(arduino_port, baud)
