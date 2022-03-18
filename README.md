@@ -43,6 +43,4 @@ The classification model used in `Send_Mode.py` can be changed based on which ML
 The encoder positions can be adjusted based on the desired amount to move the fingers. These would be the `pos_index`, `pos_middle`, `pos_fourth`, and `pos_pinky` variables in the encoder control files. 
 
 ## Playing You Are My Sunshine with the Hand
-[![You Are My Sunshine](Final_Demo.png)](https://drive.google.com/file/d/12-7LMKhfDyjvKwPP5Gmho7GiX6tN9srv/preview "You Are My Sunshine")
-
-[![Fibonacci RMI Java EE](http://img.youtube.com/vi/nX_inqaAzOI/0.jpg)](https://www.youtube.com/watch?v=nX_inqaAzOI&feature=youtu.be&hd=1 "RMI Fibonacci Java")
+[![You Are My Sunshine](./gifs/Final_Demo.png)](https://drive.google.com/file/d/12-7LMKhfDyjvKwPP5Gmho7GiX6tN9srv/preview "You Are My Sunshine")
