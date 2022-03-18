@@ -1,8 +1,22 @@
+"""
+Plots time series EMG readings for each sensor and the modes during the timeframe.
+
+Modes:
+    0 - no flexion
+    1 - index finger flexed
+    2 - middle finger flexed
+    3 - fourth finger flexed 
+    4 - pinky finger flexed
+
+Use line: `savefig` in order to save the plot.
+
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.signal import find_peaks
 
+# Read individual data files, change path for whichever data file desired to plot
 df = pd.read_csv('./data/Combined_EMG_data1.csv')
 y1 = pd.DataFrame(df['EMG Sensor 1']).to_numpy()
 y2 = pd.DataFrame(df['EMG Sensor 2']).to_numpy()
@@ -48,25 +62,9 @@ ax[4].set_ylabel('Mode', fontsize=15)
 
 ax[0].set_xlim(0, 100)
 ax[0].set_xticks(np.arange(0, 100, 5))
-# ax[0].set_ylim(0, 3)
-# ax[1].set_ylim(0, 3)
-# ax[2].set_ylim(0, 3)
-# ax[3].set_ylim(0, 3)
-# ax[0].set_yticks(np.arange(0, 2, 0.2))
 
 for ax in plt.gcf().axes:
     ax.legend(bbox_to_anchor=(1, 1),loc='upper left')
 
 # plt.savefig("./plots/Combined_EMG_data10.png")
 plt.show()
-
-# plt.figure(figsize=(20,15))
-# plt.title('EMG Data 6', fontsize=20)
-# plt.xlabel('Time (s)', fontsize=15)
-# plt.ylabel('Voltage', fontsize=15)
-# plt.xlim(0, 100)
-# plt.xticks(np.arange(0, 100, 5))
-# plt.yticks(np.arange(0, 2, 0.2))
-# plt.plot(x_list, y_list)
-# plt.savefig("./plots/EMG_data6.png")
-# plt.show()
