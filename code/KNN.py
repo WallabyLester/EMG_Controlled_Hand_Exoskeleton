@@ -3,7 +3,7 @@ K Nearest Neighbors algorithm to classify finger flexion based on EMG readings.
 Hyperparameters found in Classification Notes. Refer to the notes to find 
 new hyperparameters as needed.
 
-Implements scikit-learn models.
+Implements scikit-learn model.
 
 Training: Use to fit model using training data
 
