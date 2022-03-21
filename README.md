@@ -3,7 +3,13 @@
 ![Final_Demo](./gifs/Final_Demo.gif)
 
 ## Overview
-The goal of this project was to design an EMG controlled hand exoskeleton that would aid stroke patients in playing the piano. The exoskeleton is 3D printed with the `.stl` and `.step` files located in the `cad` directory. You can view individual `.stl` files to see what the parts look like prior to printing. Parts were printed on a Ultimaker 3 with black tough PLA. Most connections are press fit or printed, but four screws and nuts are needed to connect the metacarpal to the hand_dorsal (washers can be added if the screw/nut pair is not big enough). Refer to `cad/exoskeleton.png` for an image of what the completed exoskeleton looks like. Four Pololu HP 6V 298:1 Micro Metal Gearmotors were used for the joints and are housed in the finger joint. The microcontroller for this project was an Arduino Uno; used for speed of prototyping, but can be upgraded to any controller if equivalent motor drivers are added. The motor driver in this case was the Adafruit Motor Shield as it allowed direct interfacing with the Arduino and control of four DC motors. 
+The goal of this project was to design an EMG controlled hand exoskeleton that would aid stroke patients in playing the piano. The exoskeleton is 3D printed with the `.stl` and `.step` files located in the `cad` directory. You can view individual `.stl` files to see what the parts look like prior to printing. Parts were printed on a Ultimaker 3 with black tough PLA. Most connections are press fit or printed, but four screws and nuts are needed to connect the metacarpal to the hand_dorsal (washers can be added if the screw/nut pair is not big enough). Refer to `cad/exoskeleton.png` for an image of what the completed exoskeleton looks like. 
+
+Four Pololu HP 6V 298:1 Micro Metal Gearmotors were used for the joints and are housed in the finger joint. 12 CPR, 2.7-18V Magnetic Encoders from Pololu were used for each motor. MyoWare Muscle Sensors were used to acquire the EMG signals. 
+
+The microcontroller for this project was an Arduino Uno; used for speed of prototyping, but can be upgraded to any controller if equivalent motor drivers are added. The motor driver in this case was the Adafruit Motor Shield as it allowed direct interfacing with the Arduino and control of four DC motors. 
+
+![Circuit Diagram](./gifs/Circuit_Diagram.png)
 
 There are three available control modes:
 1. Using thresholds. Thresholding uses manually found thresholds from EMG readings and basic motor control in which the fingers move up and down a set amount based on an input power. 
