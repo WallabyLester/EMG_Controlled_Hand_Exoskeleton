@@ -1,6 +1,7 @@
 # EMG Controlled Hand Exoskeleton
 
-![Final_Demo](./gifs/Final_Demo.gif)
+<video width="640" height="360" controls> <source src="https://user-images.githubusercontent.com/90433630/159782526-b3bb951d-2681-48af-9a75-46fd34234eaf.mp4"> </video>
+<p>Playing You Are My Sunshine</p>
 
 ## Overview
 The goal of this project was to design an EMG controlled hand exoskeleton that would aid stroke patients in playing the piano. The exoskeleton is 3D printed with the `.stl` and `.step` files located in the `cad` directory. You can view individual `.stl` files to see what the parts look like prior to printing. Parts were printed on a Ultimaker 3 with black tough PLA. Most connections are press fit or printed, but four screws and nuts are needed to connect the metacarpal to the hand_dorsal (washers can be added if the screw/nut pair is not big enough). Refer to `cad/exoskeleton.png` for an image of what the completed exoskeleton looks like. 
@@ -47,6 +48,3 @@ Use `MotorControl.ino` to test movement of individual motors and `Stop.ino` to s
 The classification model used in `Send_Mode.py` can be changed based on which ML model you would like to use. Change the line: `filename` to use different models.
 
 The encoder positions can be adjusted based on the desired amount to move the fingers. These would be the `pos_index`, `pos_middle`, `pos_fourth`, and `pos_pinky` variables in the encoder control files. 
-
-## Playing You Are My Sunshine with the Hand
-[![You Are My Sunshine](./gifs/Final_Demo.png)](https://drive.google.com/file/d/12-7LMKhfDyjvKwPP5Gmho7GiX6tN9srv/preview "You Are My Sunshine")
