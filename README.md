@@ -1,6 +1,6 @@
 # EMG Controlled Hand Exoskeleton
 
-<video width="640" height="360" controls> <source src="https://user-images.githubusercontent.com/90433630/159782526-b3bb951d-2681-48af-9a75-46fd34234eaf.mp4"> </video>
+https://user-images.githubusercontent.com/90433630/159782526-b3bb951d-2681-48af-9a75-46fd34234eaf.mp4
 <p>Playing You Are My Sunshine</p>
 
 ## Overview
